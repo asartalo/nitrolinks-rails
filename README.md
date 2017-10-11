@@ -51,7 +51,7 @@ World(Nitrolinks::Capybara::Jscript)
 World(Nitrolinks::Capybara::WaitForThings)
 ```
 
-Then on your application add something like this:
+Then on your application layout add something like this:
 
 ```html
 <% if Rails.env == 'test' %>
