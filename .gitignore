@@ -1,3 +1,4 @@
+.DS_Store
 /.bundle/
 /.yardoc
 /Gemfile.lock
@@ -7,3 +8,7 @@
 /pkg/
 /spec/reports/
 /tmp/
+features/dummy/db/*.sqlite3
+features/dummy/db/*.sqlite3-journal
+features/dummy/log/*.log
+features/dummy/tmp/

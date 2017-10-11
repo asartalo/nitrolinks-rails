@@ -1,0 +1,37 @@
+doctype html
+html
+  head
+    title Nitrolinks Testing
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="mobile-web-app-capable" content="yes"
+    meta name="apple-mobile-web-app-status-bar-style" content="white"
+    meta name="theme-color" content="#27ae60"
+    link rel="manifest" href="/manifest.json"
+    = csrf_meta_tags
+    link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,600" rel="stylesheet"
+    = stylesheet_link_tag    'application', media: 'all', 'data-nitrolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-nitrolinks-track': 'reload'
+    // - unless Rails.env == 'production'
+    //   = javascript_include_tag 'testing', 'data-nitrolinks-track': 'reload'
+
+  body(class=(yield :page))
+    = yield
+
+    #nitro-debugging
+      h2 Nitro Load Count:
+      p.nitro-load-count
+
+      h2 Dom Loads:
+      ul.dom-loads
+
+      h2 Fetch Loads:
+      ul.fetch-loads
+
+      h2 Cache Loads:
+      ul.cache-loads
+
+      h2 Javascript Errors:
+      ul.javascript-errors
+
+      a(href='#') Foo
