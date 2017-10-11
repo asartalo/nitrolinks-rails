@@ -19,11 +19,15 @@ gem 'nitrolinks-rails'
 
 And then execute:
 
+```sh
 $ bundle
+```
 
 Or install it yourself as:
 
+```sh
 $ gem install nitrolinks-rails
+```
 
 ## Usage
 
