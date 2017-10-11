@@ -37,6 +37,28 @@ Include nitrolinks in your application.js
 //= require nitrolinks
 ```
 
+### Cucumber
+
+If you are using cucumber with capybara, add this:
+
+```ruby
+# features/support/nitrolinks.rb
+
+require 'nitrolinks/capybara/jscript'
+require 'nitrolinks/capybara/wait_for_things'
+
+World(Nitrolinks::Capybara::Jscript)
+World(Nitrolinks::Capybara::WaitForThings)
+```
+
+Then on your application add something like this:
+
+```html
+<% if Rails.env == 'test' %>
+  <%= javascript_include_tag 'nitrolinks/load-helper' %>
+<% end %>
+```
+
 ## Development
 
 To install this gem onto your local machine, run `bundle exec rake install`. To

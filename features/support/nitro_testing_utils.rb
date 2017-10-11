@@ -1,16 +1,4 @@
 module NitroTestingUtils
-  def jscript(code)
-    page.evaluate_script(code)
-  end
-
-  def expect_script(code, filter = nil)
-    result = jscript(code)
-    if filter
-      result = result.send(filter)
-    end
-    expect(result)
-  end
-
   def nitro_page(name)
     NitroSpecs::Pages.send("#{ name }_page")
   end

@@ -35,21 +35,9 @@ class NitrolinksTesting
   body: ->
     select('body')
 
-  markAsLoading: (from)->
-    @active = true
-    @body().classList.add('testing-visiting')
-
-  markAsDoneLoading: ->
-    @active = false
-    @body().classList.remove('testing-visiting')
-
   listen: ->
-    eventListen 'nitrolinks:visit', =>
-      @markAsLoading('nitrolinks:visit')
-
     loads = (e) =>
       @loadCount += 1
-      @markAsDoneLoading()
       @showDebugData()
 
     eventListen 'nitrolinks:load', loads
@@ -68,7 +56,6 @@ class NitrolinksTesting
       return unless select('#nitro-debugging')
       @addToLoaded(@window.location.href)
       @showDebugData()
-      @markAsDoneLoading()
 
   addToFetched: (url) ->
     @addToArrayStored(@fetchLoadKey, url)
